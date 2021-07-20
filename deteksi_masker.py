@@ -59,16 +59,16 @@ ap.add_argument("-c", "--confidence", type=float, default=0.5,
 	help="minimum probability to filter weak detections")
 args = vars(ap.parse_args())
 
-print("[INFO] loading face detector model...")
+print("[INFO] memuat deteksi muka model...")
 prototxtPath = os.path.sep.join([args["face"], "deploy.prototxt"])
 weightsPath = os.path.sep.join([args["face"],
 	"res10_300x300_ssd_iter_140000.caffemodel"])
 faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 
-print("[INFO] loading face mask detector model...")
+print("[INFO] memuat deteksi muka masker model...")
 maskNet = load_model(args["model"])
 
-print("[INFO] starting video stream...")
+print("[INFO] memulai stream video...")
 vs = VideoStream(src=0).start()
 time.sleep(2.0)
 
